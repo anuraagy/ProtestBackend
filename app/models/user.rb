@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :comments
   belongs_to :movement, :required => false
 
+  validates :username, :presence => true
+
   def movements_created
     Movement.where(:creator => email)
   end
